@@ -6,7 +6,7 @@ import {
 	useState
 } from "react";
 import { ImageSlots } from '../components/ImageSlots'
-import { MusicPlayer } from '../components/musicPlayer'
+import { MusicPlayer } from '../components/MusicPlayer'
 
 interface LandingProps {
 	imageURLs: string[]

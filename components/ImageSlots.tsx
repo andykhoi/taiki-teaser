@@ -25,7 +25,7 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 	const urlStore = useRef(imageURLs)
 	const loadedImages = useRef<string[]>([])
 	const iterations = useRef(0)
-	const [activeImages, setActiveImages] = useState<[string | undefined, string | undefined, string | undefined]>([null, null, null])
+	const [activeImages, setActiveImages] = useState<[string | undefined, string | undefined, string | undefined]>([undefined, undefined, undefined])
 	// preload the first 9 images 
 	// get random index value 
 	const preloadImage = useCallback((url: string) => {
