@@ -64,7 +64,7 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 	}
 	
 	useEffect(() => {
-		loadImages(9)
+		loadImages(48)
 	}, [])
 
 	useEffect(() => {

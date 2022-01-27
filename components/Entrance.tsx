@@ -26,7 +26,7 @@ export const Entrance: FC<EntranceProps> = ({
 						<path d="M0 24V21.3333H2.66667V1.33333C2.66667 0.597333 3.264 0 4 0H20C20.736 0 21.3333 0.597333 21.3333 1.33333V21.3333H24V24H0ZM18.6667 2.66667H5.33333V21.3333H18.6667V2.66667ZM16 10.6667V13.3333H13.3333V10.6667H16Z" fill="black"/>
 					</svg> 
 				}</div>
-				Enter
+				<div>Enter</div>
 			</button>
 		</div>
 	)

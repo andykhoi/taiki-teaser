@@ -114,24 +114,3 @@ p {
 	line-height: 125%;
 }
 
-@media (min-width: 710px) and (min-height: 650px) {
-	h1 {
-		font-size: 128px;
-	}
-
-	h2 {
-		font-size: 22px;
-	}
-
-	h3 {
-		font-size: 32px;
-	}
-
-	button {
-		font-size: 20px;
-	}
-
-	p {
-		font-size: 16px;
-	}
-}
