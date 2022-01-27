@@ -39,7 +39,7 @@ const Index: NextPage<IndexProps> = ({
 	)
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	let imageURLs: string[] = []
 	let musicURL: string = ''
 	const bucketURL = 'https://taiki.s3.us-west-2.amazonaws.com/'
