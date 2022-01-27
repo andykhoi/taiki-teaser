@@ -1,0 +1,294 @@
+body {
+	background-color: black;
+	min-width: 337px
+}
+
+.visible {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+.TaikiFriends {
+	min-height: 100%;
+	/* max-height: 100%; */
+	width: 100%;
+	padding: 0px 23px;
+	display: flex;
+    flex-direction: column;
+	/* justify-content: center; */
+	position: relative;
+}
+
+.Entrance {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Entrance button {
+	cursor: pointer;
+	width: 155px;
+	height: 56px;
+	border-radius: 32px;
+	background: white;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Entrance button .DoorIcon {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 5px
+}
+
+.Landing {
+    /* margin-bottom: 60px; */
+	margin-top: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s ease-in-out;
+}
+
+.Footer {
+	margin-top: auto;
+	margin-bottom: 30px;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+}
+
+.TaikiHeader {
+	display: block;
+	color: white;
+	text-align: center;
+}
+
+.ImageSlots {
+	display: flex;
+	justify-content: space-between;
+	/* margin-top: -15px; */
+	max-width: 738px;
+	margin: -15px auto;
+}
+
+.ImageSlots .Slot:first-of-type {
+	margin-left: 0;
+}
+
+.ImageSlots .Slot:last-of-type {
+	margin-right: 0;
+}
+
+
+.Slot {
+	margin: 0px 12px;
+	display: inline-block;
+	position: relative;
+	width: calc(100% / 3 - 20px);
+	max-width: 230px;
+	/* padding-bottom: calc(100% / 3 - 20px); */
+}
+
+.Slot img {
+	border-radius: 50%;
+}
+
+
+.InProgress {
+	margin-top: 48px;
+	color: white;
+	text-align: center;
+    position: relative;
+}
+
+.TaikiSocials {
+	margin-top: 54px;
+	text-align: center;
+}
+
+.TaikiSocials h2 {
+	color: white;
+	margin-bottom: 24px;
+}
+
+
+.TaikiSocials button {
+	vertical-align: text-bottom;
+	width: 124px;
+	height: 42px;
+	border-radius: 42px;
+	/* margin-top: 24px; */
+	background-color: white;
+	border: none;
+	outline: none;
+	justify-content: center;
+    align-items: center;
+    display: inline-flex;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.TaikiSocials button:hover {
+	background-color: #B6B6B6;
+}
+
+.TaikiSocials a {
+	text-decoration: none;
+}
+
+.TaikiSocials a:first-of-type {
+	margin-right: 20px;
+}
+
+
+.TaikiSocials button svg {
+	margin-right: 8px
+}
+
+.Legal {
+	color: #9C9C9C;
+	display: block;
+	/* position: absolute; */
+	/* left: 0;
+	right: 0;
+	margin: 0 auto; */
+	/* bottom: 30px; */
+	text-align: center;
+}
+
+.dot-flashing {
+	position: relative;
+	margin-left: 8px;
+    display: inline-block;
+	width: 4px;
+	height: 4px;
+	border-radius: 5px;
+	/* background-color: #FFFFFF;
+	color: #FFFFFF; */
+	animation: delayedDotFlashing 2s infinite steps(1, end);
+	/* animation-delay: 0.1s; */
+	/* animation-delay: 2s; */
+}
+
+.MusicPlayer {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.MusicPlayer button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 0;
+}
+
+.dot-flashing::before {
+	left: -6px;
+	width: 4px;
+	height: 4px;
+	border-radius: 5px;
+	animation: dotFlashing 2s infinite steps(1, end);
+}
+
+.dot-flashing::after {
+	left: 6px;
+	width: 4px;
+	height: 4px;
+	border-radius: 5px;
+	animation: delayedDotFlashing2 2s infinite steps(1, end);
+}
+
+@media screen and (max-width: 900px) and (max-height: 599px) {
+	.Landing {
+		margin-top: 50px 
+	}
+	.Footer {
+		margin-top: 30px
+	}
+}
+
+
+@media screen and (max-height: 649px) {
+	.ImageSlots {
+		max-width: 550px
+	}
+	.TaikiSocials {
+		margin-top: 32px;
+	}
+	.TaikiSocials h2{
+		margin-bottom: 16px;
+	}
+	
+	.MusicPlayer {
+		position: absolute;
+		margin-bottom: 0;
+		bottom: 20px;
+		right: 20px;
+	}
+}
+
+@media screen and (min-width: 710px) and (min-height: 650px) {
+	.ImageSlots {
+		margin-top: -30px;
+	}
+
+	.MusicPlayer {
+		position: absolute;
+		margin-bottom: 0;
+		bottom: 36px;
+		right: 36px;
+	}
+}
+
+
+@keyframes dotFlashing {
+	0% {
+		background-color: #000000;
+	}
+	50% {
+		background-color: #FFFFFF;
+	}
+	100% {
+		background-color: #000000;
+	}
+}
+
+@keyframes delayedDotFlashing {
+	0% {
+		background-color: #000000;
+	}
+	60% {
+		background-color: #FFFFFF;
+	}
+	100% {
+		background-color: #000000;
+	}
+}
+
+@keyframes delayedDotFlashing2 {
+	0% {
+		background-color: #000000;
+	}
+	70% {
+		background-color: #FFFFFF;
+	}
+	100% {
+		background-color: #000000;
+	}
+}
