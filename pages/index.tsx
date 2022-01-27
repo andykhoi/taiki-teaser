@@ -56,7 +56,10 @@ export async function getStaticProps() {
 		musicURL = `${bucketURL}${musicData.Contents[0].Key}`
 	}
 	if (imageData.Contents !== undefined && imageData.Contents.length > 0) {
-		imageData.Contents.forEach(content => imageURLs.push(`${bucketURL}${content.Key}`))
+		imageData.Contents.forEach((content, i) => {
+			if (i === 0) return
+			imageURLs.push(`${bucketURL}${content.Key}`)
+		})
 	}
 	
 	return {
