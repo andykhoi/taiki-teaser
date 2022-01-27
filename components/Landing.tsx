@@ -39,9 +39,9 @@ export const Landing: FC<LandingProps> = ({
 				<h1 className="TaikiHeader">Taiki</h1>
 				<h1 className="TaikiHeader">Friends</h1>
 				<ImageSlots imageURLs={imageURLs} setImagesPreloaded={setImagesPreloaded} mounted={mounted} />
-				<h3 className="InProgress">Currently Building<div className="dot-flashing"></div></h3>
+				<h3 className="InProgress">Currently building<div className="dot-flashing"></div></h3>
 				<div className="TaikiSocials">
-					<h2>Get Updates</h2>
+					<h2>Stay Updated</h2>
 					<a
 						href="https://twitter.com/taikifriends"
 						target="_blank"

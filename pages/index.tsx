@@ -29,7 +29,7 @@ const Index: NextPage<IndexProps> = ({
 	return (
 		<>
 			{
-				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} />  
+				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} imagesPreloaded={imagesPreloaded} musicCanPlay={musicCanPlay}/>  
 			}
 			<div className="TaikiFriends">
 				<Landing mounted={mounted} imageURLs={imageURLs} musicURL={musicURL} setMusicCanPlay={setMusicCanPlay} setImagesPreloaded={setImagesPreloaded} /> 
@@ -45,7 +45,7 @@ export async function getStaticProps() {
 	const bucketURL = 'https://taiki.s3.us-west-2.amazonaws.com/'
 	const imageData = await s3Client.listObjectsV2({
 		Bucket: 'taiki',
-		Prefix: 'taiki_images'
+		Prefix: 'new_images_taiki'
 	})
 	const musicData = await s3Client.listObjectsV2({
 		Bucket: 'taiki',

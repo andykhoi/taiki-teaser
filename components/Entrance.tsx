@@ -3,19 +3,32 @@ import {
 	Dispatch,
 	SetStateAction,
 	useState,
+	useLayoutEffect,
 } from "react";
 
 interface EntranceProps {
 	setMounted: Dispatch<SetStateAction<boolean>>
+	imagesPreloaded: boolean
+	musicCanPlay: boolean
 }
 
 export const Entrance: FC<EntranceProps> = ({
+	imagesPreloaded,
+	musicCanPlay,
 	setMounted
 }) => {
 	const [isHovered, setIsHovered] = useState(false)
+	const [visible, setVisible] = useState(false)
+	// show button when ready after x seconds
+		// useEffect(() => {
+		// 	// setTimeout(() => {
 
+		// 	// })
+
+		// }, [])
 	return (
-		<div className="Entrance">
+
+		<div className={`Entrance ${imagesPreloaded && musicCanPlay ? 'visible' : ''}`}>
 			<button onClick={() => setMounted(() => true)} onMouseOver={() => setIsHovered(() => true)} onMouseLeave={() => setIsHovered(() => false)}>
 				<div className="DoorIcon">{ isHovered ? 	
 					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +39,7 @@ export const Entrance: FC<EntranceProps> = ({
 						<path d="M0 24V21.3333H2.66667V1.33333C2.66667 0.597333 3.264 0 4 0H20C20.736 0 21.3333 0.597333 21.3333 1.33333V21.3333H24V24H0ZM18.6667 2.66667H5.33333V21.3333H18.6667V2.66667ZM16 10.6667V13.3333H13.3333V10.6667H16Z" fill="black"/>
 					</svg> 
 				}</div>
-				<div>Enter</div>
+				<div><span>Enter</span></div>
 			</button>
 		</div>
 	)
