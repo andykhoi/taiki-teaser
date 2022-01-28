@@ -24,8 +24,6 @@ const Index: NextPage<IndexProps> = ({
 	const [musicCanPlay, setMusicCanPlay] = useState(false)
 	// const [readyToMount, setReadyToMount] = useState(false)
 	const [mounted, setMounted] = useState(false)
-	console.log(imagesPreloaded)
-	console.log(musicCanPlay)
 	return (
 		<>
 			{
@@ -51,7 +49,6 @@ export async function getStaticProps() {
 		Bucket: 'taiki',
 		Prefix: 'music/taiki_music.mp3'
 	})
-	// console.log(musicData)
 	if (musicData.Contents !== undefined && musicData.Contents.length > 0) {
 		musicURL = `${bucketURL}${musicData.Contents[0].Key}`
 	}

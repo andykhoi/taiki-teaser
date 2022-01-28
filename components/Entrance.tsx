@@ -3,7 +3,7 @@ import {
 	Dispatch,
 	SetStateAction,
 	useState,
-	useLayoutEffect,
+	useEffect,
 } from "react";
 
 interface EntranceProps {
@@ -19,6 +19,7 @@ export const Entrance: FC<EntranceProps> = ({
 }) => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [visible, setVisible] = useState(false)
+	
 	// show button when ready after x seconds
 		// useEffect(() => {
 		// 	// setTimeout(() => {
@@ -29,7 +30,13 @@ export const Entrance: FC<EntranceProps> = ({
 	return (
 
 		<div className={`Entrance ${imagesPreloaded && musicCanPlay ? 'visible' : ''}`}>
-			<button onClick={() => setMounted(() => true)} onMouseOver={() => setIsHovered(() => true)} onMouseLeave={() => setIsHovered(() => false)}>
+			<button onClick={() => {
+				const audio: HTMLAudioElement = document.getElementById('audio') as HTMLAudioElement
+				audio.play()
+				console.log(audio)
+				setMounted(() => true)
+			}} 
+			onMouseOver={() => setIsHovered(() => true)} onMouseLeave={() => setIsHovered(() => false)}>
 				<div className="background"></div>
 				<div className="DoorIcon">{ isHovered ? 	
 					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

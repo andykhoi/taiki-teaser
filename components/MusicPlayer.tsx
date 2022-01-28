@@ -24,6 +24,10 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 	const [muted, setMuted] = useState(true);
 	const [ended, setEnded] = useState(false)
 	const audioRef = useRef<HTMLAudioElement>(null)
+	console.log(playing, muted, ended)
+	useEffect(() => {
+		
+	}, [mounted])
 
 	useEffect(() => {
 		if (mounted && audioRef.current) {
@@ -51,17 +55,15 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 	return (
 		<div className="MusicPlayer">
 			<audio 
-				// controls
+				// controls={true}
 				muted={muted}
 				// autoPlay={muted ? false : true}
+				id="audio"
 				src={musicURL}
 				ref={audioRef}
 				onCanPlay={() => {
 					setMusicCanPlay(() => true)}
 				}
-				onPlayCapture={() => {
-					console.log('play')
-				}}
 				onEnded={() => {
 					setEnded(() => true)
 					setPlaying(() => false)
@@ -73,6 +75,8 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 					ended && !playing && <button onClick={() => {
 						if (audioRef.current) {
 							audioRef.current.currentTime = 0
+							audioRef.current.muted = false
+							audioRef.current.play()
 							setEnded(() => false)
 							setMuted(() => false)
 							setPlaying(() => true)
@@ -86,6 +90,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 				{ playing && !muted &&
 					<button onClick={() => {
 						if (audioRef.current) {
+							audioRef.current.muted = true
 							setMuted(() => true)
 							// setPlaying(() => false)
 						}
@@ -100,6 +105,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 				{
 					!ended && muted && <button onClick={() => {
 						if (audioRef.current) {
+							audioRef.current.muted = false
 							setMuted(() => false)
 						}
 					}}>

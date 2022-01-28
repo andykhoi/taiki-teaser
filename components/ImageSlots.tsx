@@ -26,15 +26,11 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 	const loadedImages = useRef<string[]>([])
 	const iterations = useRef(0)
 	const [activeImages, setActiveImages] = useState<[string | undefined, string | undefined, string | undefined]>([undefined, undefined, undefined])
-	// preload the first 9 images 
-	// get random index value 
 	const preloadImage = useCallback((url: string) => {
-		// console.log(url)
 		const image = new Image()
 		image.src = url
 		image.onload = () => {
 			loadedImages.current.push(url)
-			console.log(loadedImages.current)
 			if (loadedImages.current.length === 3) {
 				console.log('test')
 				loadActiveImages(iterations.current)
@@ -48,7 +44,6 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 			const randIndex = Math.floor(Math.random()*urlStore.current.length)
 			const value = urlStore.current[randIndex]
 			urlStore.current.splice(randIndex, 1)
-			console.log(urlStore.current);
 			preloadImage(value)
 		}
 	}, [preloadImage])
@@ -60,7 +55,6 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 				multiple = 0
 				iterations.current = 0
 			}
-			// console.log([loadedImages.current[multiple], loadedImages.current[multiple + 1], loadedImages.current[multiple + 2]])
 			return [loadedImages.current[multiple], loadedImages.current[multiple + 1], loadedImages.current[multiple + 2]]
 		})
 		iterations.current++
