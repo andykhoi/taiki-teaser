@@ -24,14 +24,14 @@ const Index: NextPage<IndexProps> = ({
 	const [musicCanPlay, setMusicCanPlay] = useState(false)
 	// const [readyToMount, setReadyToMount] = useState(false)
 	const [mounted, setMounted] = useState(false)
-	console.log(imagesPreloaded)
-	console.log(musicCanPlay)
 	return (
 		<>
 			{
 				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} imagesPreloaded={imagesPreloaded} musicCanPlay={musicCanPlay}/>  
 			}
-			<div className="TaikiFriends">
+			<div
+				className={`TaikiFriends ${!mounted ? 'hide' : ''}`}
+			>
 				<Landing mounted={mounted} imageURLs={imageURLs} musicURL={musicURL} setMusicCanPlay={setMusicCanPlay} setImagesPreloaded={setImagesPreloaded} /> 
 			</div>
 		</>
@@ -51,7 +51,6 @@ export async function getStaticProps() {
 		Bucket: 'taiki',
 		Prefix: 'music/taiki_music.mp3'
 	})
-	// console.log(musicData)
 	if (musicData.Contents !== undefined && musicData.Contents.length > 0) {
 		musicURL = `${bucketURL}${musicData.Contents[0].Key}`
 	}
