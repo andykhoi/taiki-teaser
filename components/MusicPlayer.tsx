@@ -21,11 +21,13 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 	setMusicCanPlay
 }) => {
 	const [playing, setPlaying] = useState(false)
+	const [muted, setMuted] = useState(true);
 	const [ended, setEnded] = useState(false)
 	const audioRef = useRef<HTMLAudioElement>(null)
 
 	useEffect(() => {
 		if (mounted && audioRef.current) {
+			setMuted(() => false)
 			setPlaying(() => true)
 			audioRef.current.play()
 		}
@@ -50,6 +52,8 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 		<div className="MusicPlayer">
 			<audio 
 				// controls
+				muted={muted}
+				// autoPlay={muted ? false : true}
 				src={musicURL}
 				ref={audioRef}
 				onCanPlay={() => {
@@ -70,6 +74,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 						if (audioRef.current) {
 							audioRef.current.currentTime = 0
 							setEnded(() => false)
+							setMuted(() => false)
 							setPlaying(() => true)
 						}
 					}}> 
@@ -78,10 +83,11 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 						</svg>
 					</button> 
 				}
-				{ playing &&
+				{ playing && !muted &&
 					<button onClick={() => {
 						if (audioRef.current) {
-							setPlaying(() => false)
+							setMuted(() => true)
+							// setPlaying(() => false)
 						}
 					}}> 
 						<svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,9 +98,9 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 					</button> 	
 				}
 				{
-					!ended && !playing && <button onClick={() => {
+					!ended && muted && <button onClick={() => {
 						if (audioRef.current) {
-							setPlaying(() => true)
+							setMuted(() => false)
 						}
 					}}>
 						<svg width="26" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">

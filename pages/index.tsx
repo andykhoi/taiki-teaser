@@ -29,7 +29,7 @@ const Index: NextPage<IndexProps> = ({
 	return (
 		<>
 			{
-				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} />  
+				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} imagesPreloaded={imagesPreloaded} musicCanPlay={musicCanPlay}/>  
 			}
 			<div className="TaikiFriends">
 				<Landing mounted={mounted} imageURLs={imageURLs} musicURL={musicURL} setMusicCanPlay={setMusicCanPlay} setImagesPreloaded={setImagesPreloaded} /> 
@@ -39,13 +39,13 @@ const Index: NextPage<IndexProps> = ({
 	)
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	let imageURLs: string[] = []
 	let musicURL: string = ''
 	const bucketURL = 'https://taiki.s3.us-west-2.amazonaws.com/'
 	const imageData = await s3Client.listObjectsV2({
 		Bucket: 'taiki',
-		Prefix: 'taiki_images'
+		Prefix: 'new_images_taiki'
 	})
 	const musicData = await s3Client.listObjectsV2({
 		Bucket: 'taiki',
@@ -56,7 +56,10 @@ export async function getStaticProps(context) {
 		musicURL = `${bucketURL}${musicData.Contents[0].Key}`
 	}
 	if (imageData.Contents !== undefined && imageData.Contents.length > 0) {
-		imageData.Contents.forEach(content => imageURLs.push(`${bucketURL}${content.Key}`))
+		imageData.Contents.forEach((content, i) => {
+			if (i === 0) return
+			imageURLs.push(`${bucketURL}${content.Key}`)
+		})
 	}
 	
 	return {

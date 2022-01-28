@@ -27,9 +27,13 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
 }
 
 .Entrance button {
+	position: relative;
+	/* opacity: 0; */
 	cursor: pointer;
 	width: 155px;
 	height: 56px;
@@ -41,6 +45,21 @@ body {
 	align-items: center;
 }
 
+.Entrance button:hover .background {
+	transform: scale(1.06);
+}
+
+.Entrance .background {
+	transition: all .22s ease-in-out;
+	z-index: -2;
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 32px;
+    background-color: #FFFFFF;
+    margin: 0;
+}
+
 .Entrance button .DoorIcon {
 	width: 32px;
 	height: 32px;
@@ -50,19 +69,24 @@ body {
 	margin-right: 5px
 }
 
+.Entrance button div {
+	/* line-height: 20px; */
+	margin-top: 4px;
+}
+
 .Landing {
     /* margin-bottom: 60px; */
 	margin-top: auto;
 	opacity: 0;
 	visibility: hidden;
-	transition: all 0.5s ease-in-out;
+	transition: all 1.5s ease-in-out;
 }
 
 .Footer {
 	margin-top: auto;
 	margin-bottom: 30px;
 	opacity: 0;
-	transition: all 0.5s ease-in-out;
+	transition: all 1.5s ease-in-out;
 }
 
 .TaikiHeader {
@@ -89,10 +113,10 @@ body {
 
 
 .Slot {
-	margin: 0px 12px;
+	/* margin: 0px 12px; */
 	display: inline-block;
 	position: relative;
-	width: calc(100% / 3 - 20px);
+	width: calc(100% / 3 - 5px);
 	max-width: 230px;
 	/* padding-bottom: calc(100% / 3 - 20px); */
 }
@@ -103,14 +127,14 @@ body {
 
 
 .InProgress {
-	margin-top: 48px;
+	margin-top: 63px;
 	color: white;
 	text-align: center;
     position: relative;
 }
 
 .TaikiSocials {
-	margin-top: 54px;
+	margin-top: 48px;
 	text-align: center;
 }
 
@@ -138,6 +162,10 @@ body {
 
 .TaikiSocials button:hover {
 	background-color: #B6B6B6;
+}
+
+.TaikiSocials button div {
+	margin-top: 3px;
 }
 
 .TaikiSocials a {
@@ -180,7 +208,7 @@ body {
 
 .MusicPlayer {
 	text-align: center;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .MusicPlayer button {
@@ -223,8 +251,8 @@ body {
 	}
 }
 
-
-@media screen and (max-height: 649px) {
+/* laptop screen heights */
+@media screen and (max-height: 699px) {
 	.ImageSlots {
 		max-width: 550px
 	}
@@ -234,18 +262,12 @@ body {
 	.TaikiSocials h2{
 		margin-bottom: 16px;
 	}
-	
-	.MusicPlayer {
-		position: absolute;
-		margin-bottom: 0;
-		bottom: 20px;
-		right: 20px;
-	}
 }
 
-@media screen and (min-width: 710px) and (min-height: 650px) {
+/* small to large laptops */
+@media screen and (min-width: 710px) and (min-height: 600px) {
 	.ImageSlots {
-		margin-top: -30px;
+		margin-top: -14px;
 	}
 
 	.MusicPlayer {
@@ -253,6 +275,52 @@ body {
 		margin-bottom: 0;
 		bottom: 36px;
 		right: 36px;
+	}
+}
+
+
+/* very large laptops */
+@media (min-width: 1400px) and (min-height: 700px) {
+	h1 {
+		font-size: 128px;
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	h3 {
+		font-size: 32px;
+	}
+
+	button {
+		font-size: 20px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	.ImageSlots {
+		margin-top: -30px;
+	}
+
+	.InProgress {
+		margin-top: 77px;
+	}
+
+	.TaikiSocials {
+		margin-top: 62px
+	}
+
+	.Footer {
+		margin-bottom: 32px;
+	}
+}
+
+@media (min-width: 1570px) and (min-height: 800) {
+	.Footer {
+		margin-bottom: 64px;
 	}
 }
 
@@ -292,3 +360,4 @@ body {
 		background-color: #000000;
 	}
 }
+
