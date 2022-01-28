@@ -29,7 +29,9 @@ const Index: NextPage<IndexProps> = ({
 			{
 				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} imagesPreloaded={imagesPreloaded} musicCanPlay={musicCanPlay}/>  
 			}
-			<div className="TaikiFriends">
+			<div
+				className={`TaikiFriends ${!mounted ? 'hide' : ''}`}
+			>
 				<Landing mounted={mounted} imageURLs={imageURLs} musicURL={musicURL} setMusicCanPlay={setMusicCanPlay} setImagesPreloaded={setImagesPreloaded} /> 
 			</div>
 		</>
