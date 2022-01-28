@@ -21,19 +21,14 @@ export const Entrance: FC<EntranceProps> = ({
 	const [visible, setVisible] = useState(false)
 	
 	// show button when ready after x seconds
-		// useEffect(() => {
-		// 	// setTimeout(() => {
-
-		// 	// })
-
-		// }, [])
+	useEffect(() => {
+		setTimeout(() => setVisible(() => true), 50)
+	}, [])
 	return (
-
-		<div className={`Entrance ${imagesPreloaded && musicCanPlay ? 'visible' : ''}`}>
+		<div className={`Entrance ${visible ? 'visible' : ''}`}>
 			<button onClick={() => {
 				const audio: HTMLAudioElement = document.getElementById('audio') as HTMLAudioElement
 				audio.play()
-				// console.log(audio)
 				setMounted(() => true)
 			}} 
 			onMouseOver={() => setIsHovered(() => true)} onMouseLeave={() => setIsHovered(() => false)}>
