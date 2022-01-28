@@ -33,7 +33,7 @@ export const Entrance: FC<EntranceProps> = ({
 			<button onClick={() => {
 				const audio: HTMLAudioElement = document.getElementById('audio') as HTMLAudioElement
 				audio.play()
-				console.log(audio)
+				// console.log(audio)
 				setMounted(() => true)
 			}} 
 			onMouseOver={() => setIsHovered(() => true)} onMouseLeave={() => setIsHovered(() => false)}>

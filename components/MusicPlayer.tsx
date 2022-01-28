@@ -24,7 +24,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({
 	const [muted, setMuted] = useState(true);
 	const [ended, setEnded] = useState(false)
 	const audioRef = useRef<HTMLAudioElement>(null)
-	console.log(playing, muted, ended)
+	// console.log(playing, muted, ended)
 	useEffect(() => {
 		
 	}, [mounted])

@@ -32,7 +32,6 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 		image.onload = () => {
 			loadedImages.current.push(url)
 			if (loadedImages.current.length === 3) {
-				console.log('test')
 				loadActiveImages(iterations.current)
 				setImagesPreloaded(() => true) 
 			}
