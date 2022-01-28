@@ -67,7 +67,7 @@ export const ImageSlots: FC<ImageSlotsProps> = ({
 		if (mounted) {
 			const interval = setInterval(() => {
 				loadActiveImages(iterations.current)
-			}, 1000)
+			}, 1500)
 		}
 	}, [mounted])
 
