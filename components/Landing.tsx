@@ -55,7 +55,7 @@ export const Landing: FC<LandingProps> = ({
 						</button>
 					</a>
 					<a
-						href="https://discord.gg/gbXM79fBXg"
+						href="https://discord.gg/vkTxgaurZv"
 						target="_blank"
 						rel="noreferrer"
 					>
