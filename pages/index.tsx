@@ -42,14 +42,15 @@ const Index: NextPage<IndexProps> = ({
 export async function getStaticProps() {
 	let imageURLs: string[] = []
 	let musicURL: string = ''
-	const bucketURL = 'https://taiki.s3.us-west-2.amazonaws.com/'
+	const bucketURL = 'https://taiki-friends.s3.us-east-1.amazonaws.com/'
 	const imageData = await s3Client.listObjectsV2({
-		Bucket: 'taiki',
-		Prefix: 'new_images_taiki'
+		Bucket: 'taiki-friends',
+		Prefix: 'images'
 	})
+
 	const musicData = await s3Client.listObjectsV2({
-		Bucket: 'taiki',
-		Prefix: 'music/taiki_music.mp3'
+		Bucket: 'taiki-friends',
+		Prefix: 'music/taikimusic.mp3'
 	})
 	if (musicData.Contents !== undefined && musicData.Contents.length > 0) {
 		musicURL = `${bucketURL}${musicData.Contents[0].Key}`
@@ -60,7 +61,7 @@ export async function getStaticProps() {
 			imageURLs.push(`${bucketURL}${content.Key}`)
 		})
 	}
-	
+
 	return {
 		props: {
 			imageURLs,
