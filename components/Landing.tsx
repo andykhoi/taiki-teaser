@@ -43,7 +43,7 @@ export const Landing: FC<LandingProps> = ({
 				<div className="TaikiSocials">
 					<h2>Stay Updated</h2>
 					<a
-						href="https://twitter.com/twitter"
+						href="https://twitter.com/taikifriends"
 						target="_blank"
 						rel="noreferrer"
 					>
