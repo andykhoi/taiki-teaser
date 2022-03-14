@@ -24,6 +24,8 @@ const Index: NextPage<IndexProps> = ({
 	const [musicCanPlay, setMusicCanPlay] = useState(false)
 	// const [readyToMount, setReadyToMount] = useState(false)
 	const [mounted, setMounted] = useState(false)
+
+	console.log(imagesPreloaded, musicCanPlay)
 	return (
 		<>
 			{
@@ -42,7 +44,7 @@ const Index: NextPage<IndexProps> = ({
 export async function getStaticProps() {
 	let imageURLs: string[] = []
 	let musicURL: string = ''
-	const bucketURL = 'https://taiki-friends.s3.us-east-1.amazonaws.com/'
+	const bucketURL = 'https://taiki-friends-us-west-copy.s3.us-west-1.amazonaws.com/'
 	const imageData = await s3Client.listObjectsV2({
 		Bucket: 'taiki-friends',
 		Prefix: 'images'
