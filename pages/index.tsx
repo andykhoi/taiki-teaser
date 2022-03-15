@@ -28,9 +28,10 @@ const Index: NextPage<IndexProps> = ({
 	console.log(imagesPreloaded, musicCanPlay)
 	return (
 		<>
-			{
+			{/* {
 				!mounted && musicCanPlay && imagesPreloaded && <Entrance setMounted={setMounted} imagesPreloaded={imagesPreloaded} musicCanPlay={musicCanPlay}/>  
-			}
+			} */}
+			<Entrance setMounted={setMounted} mounted={mounted} />  
 			<div
 				className={`TaikiFriends ${!mounted ? 'hide' : ''}`}
 			>

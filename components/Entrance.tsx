@@ -8,14 +8,16 @@ import {
 
 interface EntranceProps {
 	setMounted: Dispatch<SetStateAction<boolean>>
-	imagesPreloaded: boolean
-	musicCanPlay: boolean
+	// imagesPreloaded: boolean
+	// musicCanPlay: boolean
+	mounted: boolean
 }
 
 export const Entrance: FC<EntranceProps> = ({
-	imagesPreloaded,
-	musicCanPlay,
-	setMounted
+	// imagesPreloaded,
+	// musicCanPlay,
+	setMounted,
+	mounted
 }) => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [visible, setVisible] = useState(false)
@@ -24,8 +26,17 @@ export const Entrance: FC<EntranceProps> = ({
 	useEffect(() => {
 		setTimeout(() => setVisible(() => true), 50)
 	}, [])
+
+	useEffect(() => {
+		if (mounted) setVisible(() => false)
+	}, [mounted])
+
+	// useEffect(() => {
+	// 	if (imagesPreloaded && musicCanPlay) setVisible(() => false)
+	// }, [imagesPreloaded, musicCanPlay])
+	
 	return (
-		<div className={`Entrance ${visible ? 'visible' : ''}`}>
+		<div className={`Entrance ${visible ? 'visible z10' : 'no-transition'}`}>
 			<button onClick={() => {
 				const audio: HTMLAudioElement = document.getElementById('audio') as HTMLAudioElement
 				audio.play()
